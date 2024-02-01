@@ -65,3 +65,30 @@ You can interact now with the database using simple SQL. Here is an example show
 SELECT * FROM landmarks;
 
 ```
+
+## Next steps
+
+- Build backend API microservice using Nest.js
+  - GET lanmarks endpoint
+- Put the backend API server in docker compose.
+- Work on the 'Zeitachse der diplomatischen Beziehungen' feature endpoints using GraphQL and put it in separate backend microservice.
+- Use Kubernetes on AWS to orchestrate the containers.
+- > ? Not sure yet :
+  - gRPC-Kommunikation:
+    Integration von gRPC für eine nahtlose Kommunikation zwischen Mikroservices,
+    insbesondere für Sprachentwicklungsmodule und virtuelle Touren.
+    Definierung von service interfaces und Nachrichten unter Verwendung von Protocol
+    Buffers.
+- Message Broker - RabbitMQ
+  Integration von RabbitMQ als Message Broker für asynchrone Kommunikation zwischen Mikroservices.:
+  - Find a use case for this one.
+- WebSockets für Real-time Updates:
+  Implementierung von WebSockets für Real-time Updates für Benutzerinteraktionen, Chatfunktionen und live contributions :
+  - Build a real time chat system or something.
+- Monitoring and Logging :
+  - Use AWS CloudWatch to monitor stuff.
+
+## Currently working on
+
+- Build backend API microservice using Nest.js
+  - GET lanmarks endpoint
