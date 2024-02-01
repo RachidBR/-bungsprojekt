@@ -1,0 +1,16 @@
+# https://www.docker.com/blog/how-to-use-the-postgres-docker-official-image/
+
+version: "3"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: rachid
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: historyDB
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
