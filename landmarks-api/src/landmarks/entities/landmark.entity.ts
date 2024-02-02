@@ -7,7 +7,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity()
+@Entity('landmarks')
 export class Landmark {
   @PrimaryGeneratedColumn()
   @ApiProperty()
