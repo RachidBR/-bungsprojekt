@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="Imx56BdjulvDOSUjw6IO" name="Page-1">
-        <mxGraphModel dx="2604" dy="1245" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1859" dy="637" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -71,7 +71,7 @@
                 <mxCell id="22" value="Uses" style="edgeStyle=none;html=1;entryX=-0.014;entryY=-0.035;entryDx=0;entryDy=0;exitX=0.986;exitY=-0.035;exitDx=0;exitDy=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="11" target="19">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" value="&amp;nbsp;" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="25" value="Landmark API (Backend)" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="60" width="990" height="1010" as="geometry"/>
                 </mxCell>
                 <mxCell id="73" value="&lt;span style=&quot;font-weight: 700;&quot;&gt;Landmark entity&lt;/span&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="25">
@@ -118,8 +118,26 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
+                <mxCell id="97" style="edgeStyle=none;html=1;entryX=0.445;entryY=1.061;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="25" source="89" target="95">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="89" value="Landmark module" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="25">
                     <mxGeometry x="80" y="240" width="820" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" value="&lt;span style=&quot;font-weight: 700;&quot;&gt;app module (main)&lt;/span&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="25">
+                    <mxGeometry x="430" y="40" width="140" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="database config" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="91">
+                    <mxGeometry y="30" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="93" value="typeORM config" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="91">
+                    <mxGeometry y="60" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="swagger config" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="91">
+                    <mxGeometry y="90" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" value="server bootstrap" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="91">
+                    <mxGeometry y="120" width="140" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="26" value="PostgreSQL database" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="1160" y="230" width="290" height="460" as="geometry"/>
