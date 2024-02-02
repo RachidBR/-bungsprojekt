@@ -17,8 +17,8 @@ services:
 
   backend:
     build:
-      context: .
-      dockerfile: ./landmarks-api/dockerfile
+      context: landmarks-api
+      dockerfile: dockerfile
     container_name: landmarks_api
     depends_on:
       - postgres
