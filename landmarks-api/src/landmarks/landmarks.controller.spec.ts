@@ -1,14 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { LandmarksController } from './landmarks.controller';
 import { LandmarksService } from './landmarks.service';
-import { Landmark } from './entities/landmark.entity';
-import { getRepositoryToken } from '@nestjs/typeorm';
 import { CreateLandmarkDto } from './dto/create-landmark.dto';
 import { UpdateLandmarkDto } from './dto/update-landmark.dto';
 
 describe('LandmarksController', () => {
   let controller: LandmarksController;
-  let service: LandmarksService;
 
   const mockLandmarkList = [
     {
@@ -68,7 +65,6 @@ describe('LandmarksController', () => {
       .compile();
 
     controller = module.get<LandmarksController>(LandmarksController);
-    service = module.get<LandmarksService>(LandmarksService);
   });
 
   describe('findAll', () => {
