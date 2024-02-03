@@ -23,23 +23,23 @@ export class Landmark {
 
   @Column({ length: 100, nullable: true })
   @ApiProperty()
-  location: string;
+  location?: string;
 
   @Column('text', { nullable: true })
   @ApiProperty()
-  historical_context: string;
+  historical_context?: string;
 
   @Column({ nullable: true })
   @ApiProperty()
-  year_built: number;
+  year_built?: number;
 
   @Column({ length: 100, nullable: true })
   @ApiProperty()
-  architect: string;
+  architect?: string;
 
   @Column({ length: 255, nullable: true })
   @ApiProperty()
-  image_url: string;
+  image_url?: string;
 
   @CreateDateColumn({ type: 'timestamp' })
   created_at: Date;
