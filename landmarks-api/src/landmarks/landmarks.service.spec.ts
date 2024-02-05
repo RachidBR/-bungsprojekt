@@ -3,6 +3,7 @@ import { LandmarksService } from './landmarks.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Landmark } from './entities/landmark.entity';
 import { Repository } from 'typeorm';
+import { NotFoundException } from '@nestjs/common';
 
 describe('LandmarksService', () => {
   let service: LandmarksService;
@@ -60,22 +61,21 @@ describe('LandmarksService', () => {
   });
 
   describe('update', () => {
+    const landmarkId = 1;
+
+    const existingLandmark: Landmark = {
+      id: landmarkId,
+      name: 'Test Landmark',
+      country: 'Test Country',
+      location: 'Test Location',
+      created_at: new Date(),
+      updated_at: new Date(),
+    };
+
+    const updatedLandmark: Landmark = {
+      ...existingLandmark,
+    };
     it('should update a landmark', async () => {
-      const landmarkId = 1;
-
-      const existingLandmark: Landmark = {
-        id: landmarkId,
-        name: 'Test Landmark',
-        country: 'Test Country',
-        location: 'Test Location',
-        created_at: new Date(),
-        updated_at: new Date(),
-      };
-
-      const updatedLandmark: Landmark = {
-        ...existingLandmark,
-      };
-
       jest
         .spyOn(repository, 'findOneBy')
         .mockImplementation(() => Promise.resolve(existingLandmark));
@@ -86,6 +86,18 @@ describe('LandmarksService', () => {
       const result = await service.update(landmarkId, existingLandmark);
 
       expect(result).toEqual(updatedLandmark);
+    });
+
+    it('should throw NotFoundException when landmark not found', async () => {
+      const landmarkId = 1;
+
+      jest
+        .spyOn(repository, 'findOneBy')
+        .mockImplementation(() => Promise.resolve(undefined));
+
+      await expect(service.update(landmarkId, updatedLandmark)).rejects.toThrow(
+        NotFoundException,
+      );
     });
   });
 
@@ -111,6 +123,18 @@ describe('LandmarksService', () => {
       const result = await service.remove(landmarkId);
 
       expect(result).toEqual(existingLandmark);
+    });
+
+    it('should throw NotFoundException when landmark not found', async () => {
+      const landmarkId = 1;
+
+      jest
+        .spyOn(repository, 'findOneBy')
+        .mockImplementation(() => Promise.resolve(undefined));
+
+      await expect(service.remove(landmarkId)).rejects.toThrow(
+        NotFoundException,
+      );
     });
   });
 });
