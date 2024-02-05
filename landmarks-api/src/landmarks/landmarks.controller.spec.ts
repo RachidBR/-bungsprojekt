@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { LandmarksController } from './landmarks.controller';
 import { LandmarksService } from './landmarks.service';
-import { CreateLandmarkDto } from './dto/create-landmark.dto';
-import { UpdateLandmarkDto } from './dto/update-landmark.dto';
+
+import { Landmark } from './entities/landmark.entity';
 
 describe('LandmarksController', () => {
   let controller: LandmarksController;
@@ -50,8 +50,8 @@ describe('LandmarksController', () => {
   const mockLandmarkService = {
     findAll: () => mockLandmarkList,
     findOne: (id: string) => mockLandmark,
-    create: (landmark: CreateLandmarkDto) => mockLandmark,
-    update: async (id: string, landmark: UpdateLandmarkDto) => mockLandmark,
+    create: (landmark: Landmark) => mockLandmark,
+    update: async (id: string, landmark: Landmark) => mockLandmark,
     remove: async (id: string) => mockLandmark,
   };
 

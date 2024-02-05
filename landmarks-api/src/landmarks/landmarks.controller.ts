@@ -8,9 +8,8 @@ import {
   Delete,
 } from '@nestjs/common';
 import { LandmarksService } from './landmarks.service';
-import { CreateLandmarkDto } from './dto/create-landmark.dto';
-import { UpdateLandmarkDto } from './dto/update-landmark.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { Landmark } from './entities/landmark.entity';
 
 @ApiTags('users')
 @Controller('landmarks')
@@ -18,8 +17,9 @@ export class LandmarksController {
   constructor(private readonly landmarksService: LandmarksService) {}
 
   @Post()
-  createLandmark(@Body() createLandmarkDto: CreateLandmarkDto) {
-    return this.landmarksService.create(createLandmarkDto);
+  createLandmark(@Body() landmark: Landmark) {
+    console.log('controller', landmark);
+    return this.landmarksService.create(landmark);
   }
 
   @Get()
@@ -41,11 +41,8 @@ export class LandmarksController {
   }
 
   @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateLandmarkDto: UpdateLandmarkDto,
-  ) {
-    return this.landmarksService.update(+id, updateLandmarkDto);
+  update(@Param('id') id: string, @Body() landmark: Landmark) {
+    return this.landmarksService.update(+id, landmark);
   }
 
   @Delete(':id')

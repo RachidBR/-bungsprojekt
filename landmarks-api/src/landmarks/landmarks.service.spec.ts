@@ -3,8 +3,6 @@ import { LandmarksService } from './landmarks.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Landmark } from './entities/landmark.entity';
 import { Repository } from 'typeorm';
-import { CreateLandmarkDto } from './dto/create-landmark.dto';
-import { UpdateLandmarkDto } from './dto/update-landmark.dto';
 
 describe('LandmarksService', () => {
   let service: LandmarksService;
@@ -37,28 +35,11 @@ describe('LandmarksService', () => {
     },
   ];
 
-  const mockLandmark = {
+  const expectedLandmark: Landmark = {
     id: 1,
-    name: 'Kasbah of Algiers',
-    country: 'Algeria',
-    location: 'Algiers',
-    historical_context: null,
-    year_built: null,
-    architect: null,
-    image_url: null,
-    created_at: new Date('2024-01-31'),
-    updated_at: new Date('2024-01-31'),
-  };
-
-  const mockCreateLandmarkDto: CreateLandmarkDto = {
     name: 'Test Landmark',
     country: 'Test Country',
     location: 'Test Location',
-  };
-
-  const expectedLandmark: Landmark = {
-    id: 1,
-    ...mockCreateLandmarkDto,
     created_at: new Date(),
     updated_at: new Date(),
   };
@@ -84,7 +65,7 @@ describe('LandmarksService', () => {
         .spyOn(repository, 'save')
         .mockImplementation(() => Promise.resolve(expectedLandmark));
 
-      const result = await service.create(mockCreateLandmarkDto);
+      const result = await service.create(expectedLandmark);
 
       expect(result).toEqual(expectedLandmark);
     });
@@ -119,11 +100,6 @@ describe('LandmarksService', () => {
   describe('update', () => {
     it('should update a landmark', async () => {
       const landmarkId = 1;
-      const updateLandmarkDto: UpdateLandmarkDto = {
-        name: 'Updated Landmark',
-        country: 'Updated Country',
-        location: 'Updated Location',
-      };
 
       const existingLandmark: Landmark = {
         id: landmarkId,
@@ -136,7 +112,6 @@ describe('LandmarksService', () => {
 
       const updatedLandmark: Landmark = {
         ...existingLandmark,
-        ...updateLandmarkDto,
       };
 
       jest
@@ -146,7 +121,7 @@ describe('LandmarksService', () => {
         .spyOn(repository, 'save')
         .mockImplementation(() => Promise.resolve(updatedLandmark));
 
-      const result = await service.update(landmarkId, updateLandmarkDto);
+      const result = await service.update(landmarkId, existingLandmark);
 
       expect(result).toEqual(updatedLandmark);
     });
