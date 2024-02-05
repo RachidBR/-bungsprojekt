@@ -1,0 +1,39 @@
+name: Landmarks-api CI
+run-name: Implementing CI (Test and Build ) pipeline
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - run: npm ci
+        working-directory: landmark-api
+      - run: npm run test
+        working-directory: landmark-api
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - run: npm ci
+        working-directory: landmark-api
+      - run: npm run build
+        working-directory: landmark-api
