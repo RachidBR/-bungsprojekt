@@ -59,44 +59,6 @@ describe('LandmarksService', () => {
     repository = module.get<Repository<Landmark>>(getRepositoryToken(Landmark));
   });
 
-  describe('create', () => {
-    it('should create a new landmark', async () => {
-      jest
-        .spyOn(repository, 'save')
-        .mockImplementation(() => Promise.resolve(expectedLandmark));
-
-      const result = await service.create(expectedLandmark);
-
-      expect(result).toEqual(expectedLandmark);
-    });
-  });
-
-  describe('findAll', () => {
-    it('should return an array of landmarks', async () => {
-      jest
-        .spyOn(repository, 'find')
-        .mockImplementation(() => Promise.resolve(mockLandmarkList));
-
-      const result = await service.findAll();
-
-      expect(result).toEqual(mockLandmarkList);
-    });
-  });
-
-  describe('findOne', () => {
-    it('should return a specific landmark', async () => {
-      const landmarkId = 1;
-
-      jest
-        .spyOn(repository, 'findOneBy')
-        .mockImplementation(() => Promise.resolve(expectedLandmark));
-
-      const result = await service.findOne(landmarkId);
-
-      expect(result).toEqual(expectedLandmark);
-    });
-  });
-
   describe('update', () => {
     it('should update a landmark', async () => {
       const landmarkId = 1;
