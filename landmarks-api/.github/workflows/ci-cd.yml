@@ -1,12 +1,12 @@
 name: CI/CD
-
-on:
-  push:
-    branches:
-      - '*'
-  pull_request:
-    branches:
-      - main
+run-name: ${{ github.actor }} is testing out GitHub Actions
+on: [push]
+  # push:
+  #   branches:
+  #     - '*'
+  # pull_request:
+  #   branches:
+  #     - main
 
 jobs:
   test:
