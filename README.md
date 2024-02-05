@@ -66,6 +66,10 @@ SELECT * FROM landmarks;
 
 ```
 
+## Project flow schema
+
+You can find the project flow schema under the [project-flow.drawio file](./project-flow.drawio) or as as svg file under [project-flow.svg](./project-flow.svg), both on the root folder.
+
 ## Next steps
 
 - Build backend API microservice using Nest.js
