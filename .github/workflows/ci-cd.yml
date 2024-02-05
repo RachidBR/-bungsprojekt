@@ -19,9 +19,9 @@ jobs:
         with:
           node-version: '20.x'
       - run: npm ci
-        working-directory: landmark-api
+        working-directory: landmarks-api
       - run: npm run test
-        working-directory: landmark-api
+        working-directory: landmarks-api
 
   build:
     runs-on: ubuntu-latest
@@ -34,6 +34,6 @@ jobs:
         with:
           node-version: '20.x'
       - run: npm ci
-        working-directory: landmark-api
+        working-directory: landmarks-api
       - run: npm run build
-        working-directory: landmark-api
+        working-directory: landmarks-api
