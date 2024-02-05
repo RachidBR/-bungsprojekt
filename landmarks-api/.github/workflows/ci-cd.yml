@@ -1,12 +1,12 @@
 name: CI/CD
-run-name: ${{ github.actor }} is testing out GitHub Actions
-on: [push]
-  # push:
-  #   branches:
-  #     - '*'
-  # pull_request:
-  #   branches:
-  #     - main
+run-name: Implementing CI (Test and Build ) pipeline
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   test:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '20.9.0'
 
       - name: Install dependencies
         run: npm install
@@ -38,7 +38,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '20.9.0'
 
       - name: Install dependencies
         run: npm install
