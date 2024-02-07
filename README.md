@@ -66,29 +66,49 @@ SELECT * FROM landmarks;
 
 ```
 
-## Next steps
+## Project flow schema
 
-- Build backend API microservice using Nest.js
-  - GET lanmarks endpoint
-- Put the backend API server in docker compose.
-- Work on the 'Zeitachse der diplomatischen Beziehungen' feature endpoints using GraphQL and put it in separate backend microservice.
-- Use Kubernetes on AWS to orchestrate the containers.
-- > ? Not sure yet :
-  - gRPC-Kommunikation:
-    Integration von gRPC für eine nahtlose Kommunikation zwischen Mikroservices,
-    insbesondere für Sprachentwicklungsmodule und virtuelle Touren.
-    Definierung von service interfaces und Nachrichten unter Verwendung von Protocol
-    Buffers.
-- Message Broker - RabbitMQ
-  Integration von RabbitMQ als Message Broker für asynchrone Kommunikation zwischen Mikroservices.:
-  - Find a use case for this one.
-- WebSockets für Real-time Updates:
-  Implementierung von WebSockets für Real-time Updates für Benutzerinteraktionen, Chatfunktionen und live contributions :
-  - Build a real time chat system or something.
-- Monitoring and Logging :
-  - Use AWS CloudWatch to monitor stuff.
+You can find the project flow schema under the [project-flow.drawio file](./project-flow.drawio) or as as svg file under [project-flow.svg](./project-flow.svg), both on the root folder.
 
-## Currently working on
+## Example of a PBI
 
-- Build backend API microservice using Nest.js
-  - GET lanmarks endpoint
+### Zeitachse der diplomatischen Beziehungen feature using GraphQL API
+
+#### 🛑 Prerequisite
+
+- GraphQL API
+- PostgreSQL service.
+- React.js frontend
+
+#### 👩 User Story
+
+- As a person that can read, I want to access the /timeline page in the frontend app.
+- As a person that can read, I want to see a timeline showing the chronological order of diplomatic events and relationships between the two countries.
+- As a person that can read, I want to click on each item of the list and get more information on that event.
+
+#### 📝 Further Information
+
+- The timeline should include details about diplomatic engagements, treaties, agreements, and historical context.
+
+#### ℹ️ Other helpful resources
+
+- Historical records and blogs on the internet such as :
+
+  - [Germany and Algeria: Bilateral relations](https://www.auswaertiges-amt.de/en/aussenpolitik/laenderinformationen/algerien-node/algeria/235168)
+  - [Algeria–Germany relations](https://en.wikipedia.org/wiki/Algeria–Germany_relations)
+
+#### 🚪 Entrypoints
+
+- When visiting the time line page, a GraphQL API endpoint would get triggered and fetch the list of events from the PostgreSQL database service.
+
+- When clicking on a event on the timeline, GraphQL API endpoint would get triggered and fetch detailed information about that specific event.
+
+#### 🤔 Open Questions
+
+- How could the user experience be enhanced ?
+- What other features would the user like to see in the timeline page.
+
+#### 🧪 Testing
+
+- Write unit tests.
+- Write integration tests.

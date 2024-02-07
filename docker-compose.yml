@@ -14,3 +14,27 @@ services:
       - "5432:5432"
     volumes:
       - ./data:/var/lib/postgresql/data
+    command:
+      [
+        "postgres",
+        "-c",
+        "listen_addresses=*",
+        "-c",
+        "max_connections=100",
+        "-c",
+        "log_statement=all",
+        "-c",
+        "log_directory=/var/lib/postgresql/data",
+        "-c",
+        "log_filename=postgresql.log",
+      ]
+
+  backend:
+    build:
+      context: landmarks-api
+      dockerfile: dockerfile
+    container_name: landmarks_api
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
